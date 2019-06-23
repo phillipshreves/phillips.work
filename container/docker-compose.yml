@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+    app:
+        container_name: personal_web_app
+        image: node:12
+        user: node
+        working_dir: "/app"
+        networks:
+        - app
+        ports:
+        - "3000:3000"
+        volumes:
+        - ./:/app
+        command: "node src/index.js"
+
+networks:
+    app:
