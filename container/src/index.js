@@ -1,10 +1,16 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => res.send('Hello World! Here is a change! How about this?'))
-app.get('/test', (req, res) => res.send('This is a routing test'))
+//Setup application
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.post('/', (req, res) => res.send('This was a POST test'))
+//Define Route
+app.get('/', (req, res) => res.render('index'));
+app.get('/test', (req, res) => res.send('This is a routing test'));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.post('/', (req, res) => res.send('This was a POST test'));
+
+app.listen(port, () => console.log(`App listening on port ${port}!`));
