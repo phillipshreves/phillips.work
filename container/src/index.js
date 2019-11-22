@@ -7,6 +7,10 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+//Setup Controllers
+app.use(express.static(path.join(__dirname, 'controllers')));
+app.use(express.static(path.join(__dirname, 'data')));
+
 //Define Route
 app.get('/', (req, res) => res.render('index'));
 app.get('/test', (req, res) => res.send('This is a routing test'));

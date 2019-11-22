@@ -11,6 +11,7 @@
   "dependencies": {
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "plotly.js-dist": "^1.51.1",
     "pm2": "^3.5.1"
   }
 }
