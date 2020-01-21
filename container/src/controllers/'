@@ -1,0 +1,61 @@
+Plotly.d3.csv("export/entry.csv", function(err, rows){
+  
+  function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+  }
+
+var mood_categories = ['Irritability','Anxiety','Depressed','Elevated']
+var irritability = unpack(rows, 'IRRITABILITY')
+var anxiety = unpack(rows, 'ANXIETY')
+var depressed = unpack(rows, 'DEPRESSED')
+var elevated = unpack(rows, 'ELEVATED')
+
+var data = [{
+  type: 'violin',
+  x: ['irritability','Anxiety','Depressed','Elevated'],
+  y: ['2019-08-21','2019-10-22'],
+  points: 'none',
+  box: {
+    visible: true
+  },
+  line: {
+    color: 'green',
+  },
+  meanline: {
+    visible: true
+  },
+  transforms: [{
+     type: 'groupby',
+     groups: unpack(rows, 'day'),
+     styles: [
+        {target: 'Sun', value: {line: {color: 'blue'}}},
+        {target: 'Sat', value: {line: {color: 'orange'}}},
+        {target: 'Thur', value: {line: {color: 'green'}}},
+        {target: 'Fri', value: {line: {color: 'red'}}}
+     ]
+    }]
+}]
+
+var layout = {
+  title: "Daily Mood by Category",
+  yaxis: {
+    zeroline: false,
+	type: 'date',
+	tickmode: 'linear',
+	tick0: '2019-08-21',
+	dtick: 86400000.0,
+	tickwidth: 10,
+	ticklen: 10
+  },
+  xaxis: {
+  	type: 'category',
+	autorange: false,
+	range: [-1,4],
+	tickmode: 'array',
+	tickvals: mood_categories,
+	ticktext: mood_categories
+  }
+}
+
+Plotly.plot('graph', data, layout, {showSendToCloud: false});
+});  

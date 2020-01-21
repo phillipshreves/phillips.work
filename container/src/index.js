@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'data')));
 
 //Define Route
 app.get('/', (req, res) => res.render('index'));
-app.get('/test', (req, res) => res.send('This is a routing test'));
+app.get('/daily-mood', (req, res) => res.render('daily-mood'));
 
 app.post('/', (req, res) => res.send('This was a POST test'));
 

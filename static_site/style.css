@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Cousine|Major+Mono+Display&display=swap');
+
+/*elements*/
+h1 {
+    font-family: 'Major Mono Display', monospace;
+}
+h2, h3, h4, h5, h6, p, li {
+    font-family: 'Cousine', monospace;
+}
+
+/*classes*/
+.content {
+    margin-left: 10%;
+    margin-right:10%;
+    padding-top: 10%;
+}
+</style>
