@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Cousine|Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cousine|Open+Sans&display=swap');
 
 /*elements*/
-h1 {
-    font-family: 'Major Mono Display', monospace;
-}
-h2, h3, h4, h5, h6, p, li {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Cousine', monospace;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+
+p {
+    font-family: 'Open Sans', sans-serif;
 }
 
 /*classes*/
@@ -14,4 +20,3 @@ h2, h3, h4, h5, h6, p, li {
     margin-right:10%;
     padding-top: 10%;
 }
-</style>
